@@ -5,6 +5,7 @@ require_relative "../spec/support/rubygems_ext"
 
 require_relative "../spec/support/switch_rubygems"
 require "turbo_tests"
+require "parallel_tests/rspec/runtime_logger"
 
 if RUBY_PLATFORM.match?(/mingw|mswin/)
   require_relative "../../tool/turbo_tests_windows_patch"
