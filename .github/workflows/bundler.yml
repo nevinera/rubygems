@@ -70,6 +70,8 @@ jobs:
         if: matrix.bundler.value != ''
       - name: Run Test
         run: |
-          bin/parallel_rspec
+          bin/parallel_rspec --format ParallelTests::RSpec::RuntimeLogger --out tmp/parallel_runtime_rspec.log
         working-directory: ./bundler
+      - name: List cached spec timings
+        run: ls tmp/*.log
     timeout-minutes: ${{ matrix.timeout || 60 }}
